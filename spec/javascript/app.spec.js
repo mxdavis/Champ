@@ -7,7 +7,7 @@ it('renders without crashing', () => {
     shallow(<App />);
 });
 
-it('renders an h1', () => {
+it('renders Posts', () => {
   const app = shallow(<App />);
 
   expect(app.text()).toContain('Posts');

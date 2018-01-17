@@ -1,0 +1,25 @@
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 100%;
+  justify-content: center;
+}
+
+.post {
+  width: 30%;
+  margin: 1%;
+  padding: 2%;
+}
+
+.blue {
+  background-color: #8aa3fd;
+}
+
+.yellow {
+  background-color: #ffffa3;
+}
+
+.center{
+  text-align:center;
+}
