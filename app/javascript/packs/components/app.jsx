@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import apiRequests from '../modules/apiRequests.js'
 import Posts from './posts.jsx'
 
-
 class App extends Component {
 
   constructor(props) {
@@ -27,7 +26,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Some of our Great Posts</h1>
         <Posts posts={this.state.posts}/>
       </div>
     );

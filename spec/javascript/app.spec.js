@@ -10,5 +10,5 @@ it('renders without crashing', () => {
 it('renders an h1', () => {
   const app = shallow(<App />);
 
-  expect(app.text()).toBe("Some of our Great Posts");
+  expect(app.text()).toContain('Posts');
 });
