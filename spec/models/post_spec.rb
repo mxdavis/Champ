@@ -11,5 +11,10 @@ RSpec.describe Post, type: :model do
       expect(post.body).to match("This is an awesome paragraph body")
       expect(post.published).to equal(true)
     end
+
+    it 'new post factorial defaulted to 0' do
+      post = build(:post)
+      expect(post.factorial).to equal(0)
+    end
   end
 end
