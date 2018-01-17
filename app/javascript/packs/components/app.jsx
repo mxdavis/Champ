@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-import '../stylesheets/spectre/spectre-exp.min.css'
-import '../stylesheets/spectre/spectre-icons.min.css'
-import '../stylesheets/spectre/spectre.min.css'
-
 import apiRequests from '../modules/apiRequests.js'
 import Posts from './posts.jsx'
 
