@@ -25,12 +25,9 @@ class App extends Component {
       .catch(error => this.setState({error}))
   }
 
-  handleOnSubmit(post){
-    event.preventDefault()
+  handleOnSubmit(post) {
     const newPost = Object.assign({}, post, {factorial: factorial.createFactorial()})
-    console.log(newPost)
-
-    // apiRequests.post("posts", post)
+    apiRequests.post("posts", newPost)
   }
 
 
