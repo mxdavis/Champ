@@ -24,6 +24,7 @@ class PostForm extends Component {
       this.props.handleOnSubmit(this.state)
       this.setState(this.props.initialState)
     }
+
     this.handleReset = (event) => {
       event.preventDefault()
       this.setState(this.props.initialState)
@@ -45,6 +46,7 @@ class PostForm extends Component {
             name="title"
             onChange={this.handleOnChange}
             value={this.state.title}
+            defaultValue={this.state.title}
           />
           <label className="form-label">Body</label>
           <textarea
@@ -55,6 +57,7 @@ class PostForm extends Component {
             type="textarea"
             onChange={this.handleOnChange}
             value={this.state.body}
+            defaultValue={this.state.body}
           />
           <label className="form-switch">
             <input
@@ -62,6 +65,7 @@ class PostForm extends Component {
               onChange={this.toggleChange}
               name="published"
               checked={this.state.published}
+              defaultValue={this.state.published}
             />
             <i className="form-icon"></i> Published?
           </label>

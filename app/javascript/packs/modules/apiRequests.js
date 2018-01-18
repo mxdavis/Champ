@@ -33,4 +33,14 @@ export default {
     })
   },
 
+  patch(url) {
+    return fetch("http://localhost:3000/" + url, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(response => response.json())
+  }
+
 }

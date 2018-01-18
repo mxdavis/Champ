@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Post from './post.jsx'
 
-const Posts = ({ posts, handleDelete }) => (
+const Posts = ({ posts, handleDelete, handleEdit}) => (
   <div className="container">
     <h1 className="center"> Some of our greatest posts</h1>
     <div className="posts">
