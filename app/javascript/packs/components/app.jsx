@@ -17,9 +17,11 @@ class App extends Component {
     this.handleOnSubmit = (post) => {
       const newPost = Object.assign({}, post, {factorial: factorial.createFactorial()})
       apiRequests.post("posts", newPost)
-      this.setState({
-        posts: [...this.state.posts, newPost]
-      })
+        .then(savedPost => {
+          this.setState({
+            posts: [...this.state.posts, savedPost]
+          })
+        })
     }
   }
 
