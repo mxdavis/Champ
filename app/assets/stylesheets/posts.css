@@ -25,3 +25,17 @@
   padding-left: 20%;
   padding-right: 20%;
 }
+
+.buttons-parent{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 100%;
+  justify-content: center;
+}
+
+.buttons-child{
+  width: 20%;
+  margin: 1%;
+  padding: 4%;
+}

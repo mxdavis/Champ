@@ -24,6 +24,10 @@ class PostForm extends Component {
       this.props.handleOnSubmit(this.state)
       this.setState(this.props.initialState)
     }
+    this.handleReset = (event) => {
+      event.preventDefault()
+      this.setState(this.props.initialState)
+    }
   }
 
   render() {
@@ -61,12 +65,17 @@ class PostForm extends Component {
             />
             <i className="form-icon"></i> Published?
           </label>
-          <div>
+          <div className="buttons-parent">
             <input
               type="submit"
               value="Submit"
-              className="btn btn-primary"
+              className="btn btn-primary buttons-child"
             />
+            <button
+              className="btn buttons-child"
+              onClick={this.handleReset}>
+              Reset
+            </button>
           </div>
         </form>
       </div>
