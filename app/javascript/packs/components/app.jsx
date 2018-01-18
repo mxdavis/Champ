@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import apiRequests from '../modules/apiRequests.js'
+import factorial from '../modules/factorial.js'
 import Posts from './posts.jsx'
+import PostForm from './postForm.jsx'
 
 class App extends Component {
 
@@ -23,10 +25,24 @@ class App extends Component {
       .catch(error => this.setState({error}))
   }
 
+  handleOnSubmit(post){
+    event.preventDefault()
+    const newPost = Object.assign({}, post, {factorial: factorial.createFactorial()})
+    console.log(newPost)
+
+    // apiRequests.post("posts", post)
+  }
+
+
   render() {
     return (
       <div className="container">
         <Posts posts={this.state.posts}/>
+        <PostForm handleOnSubmit={this.handleOnSubmit} initialState={{
+          title: "",
+          body: "",
+          published: false
+        }}/>
       </div>
     );
   }
