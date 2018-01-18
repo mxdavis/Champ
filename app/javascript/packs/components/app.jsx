@@ -1,7 +1,9 @@
+import $ from 'jquery'
 import React, { Component } from 'react';
 
 import apiRequests from '../modules/apiRequests.js'
 import factorial from '../modules/factorial.js'
+import fullPage from '../modules/fullPage.js'
 import Posts from './posts.jsx'
 import PostForm from './postForm.jsx'
 
@@ -11,7 +13,13 @@ class App extends Component {
     super(props)
     this.state = {
       posts: [],
-      error: ""
+      error: "",
+      edit: false,
+      post: {
+        title: "",
+        body: "",
+        published: false
+      }
     }
 
     this.handleOnSubmit = (post) => {
@@ -34,6 +42,10 @@ class App extends Component {
         posts: this.state.posts.filter(post => deletedPost !== post)
       })
     }
+
+    this.handleEdit = (post) => {
+      this.setState({post})
+    }
   }
 
   componentDidMount() {
@@ -47,14 +59,22 @@ class App extends Component {
   }
 
   render() {
+
+    $(document).ready(function() {
+       $('#fullpage').fullpage();
+     });
+
     return (
       <div className="container">
-        <Posts posts={this.state.posts} handleDelete={this.handleDelete}/>
-        <PostForm handleOnSubmit={this.handleOnSubmit} initialState={{
-          title: "",
-          body: "",
-          published: false
-        }}/>
+        <ul id="menu">
+          <li data-menuanchor="firstPage" className="active"><a href="#firstPage">First slide</a></li>
+          <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+          <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+        </ul>
+        <div id="fullpage">
+          <Posts posts={this.state.posts} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/>
+          <PostForm handleOnSubmit={this.handleOnSubmit} initialState={this.state.post}/>
+        </div>
       </div>
     );
   }
