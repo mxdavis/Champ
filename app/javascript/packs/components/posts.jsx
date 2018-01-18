@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import Post from './post.jsx'
 
-const Posts = ({ posts }) => (
+const Posts = ({ posts, handleDelete }) => (
   <div className="container">
     <h1 className="center"> Some of our greatest posts</h1>
     <div className="posts">
-     {posts.map(post => <div key={post.id} className={`post ${post.id % 2 == 0? "blue" : "yellow"}`}> <Post post={post}/> </div>)}
+     {posts.map((post, i) => <div key={post.id} className={`post ${i % 2 == 0? "blue" : "yellow"}`}> <Post post={post} handleDelete={handleDelete}/> </div>)}
     </div>
   </div>
 )

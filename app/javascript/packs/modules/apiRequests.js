@@ -13,7 +13,6 @@ export default {
   },
 
   post(url, body) {
-    debugger
     return fetch("http://localhost:3000/" + url, {
       method: 'POST',
       headers: {
@@ -22,6 +21,16 @@ export default {
       },
       body: JSON.stringify(body)
     }).then(response => response.json())
+  },
+
+  delete(url) {
+    return fetch("http://localhost:3000/" + url, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
   },
 
 }

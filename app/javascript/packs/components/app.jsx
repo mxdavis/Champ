@@ -23,6 +23,17 @@ class App extends Component {
           })
         })
     }
+
+    this.handleDelete = (post) => {
+      apiRequests.delete(`posts/${post.id}/`)
+        .then(deletedPost => deletedPost.ok ? this.removeFromState(post) : null)
+    }
+
+    this.removeFromState = (deletedPost) => {
+      this.setState({
+        posts: this.state.posts.filter(post => deletedPost !== post)
+      })
+    }
   }
 
   componentDidMount() {
@@ -38,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Posts posts={this.state.posts}/>
+        <Posts posts={this.state.posts} handleDelete={this.handleDelete}/>
         <PostForm handleOnSubmit={this.handleOnSubmit} initialState={{
           title: "",
           body: "",
