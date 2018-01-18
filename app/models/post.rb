@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  before_save :generate_factorial
+  # before_save :generate_factorial
 
   def generate_factorial
     i = rand(1..10)
