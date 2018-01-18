@@ -13,6 +13,14 @@ class App extends Component {
       posts: [],
       error: ""
     }
+
+    this.handleOnSubmit = (post) => {
+      const newPost = Object.assign({}, post, {factorial: factorial.createFactorial()})
+      apiRequests.post("posts", newPost)
+      this.setState({
+        posts: [...this.state.posts, newPost]
+      })
+    }
   }
 
   componentDidMount() {
@@ -24,12 +32,6 @@ class App extends Component {
       .then(posts => this.setState({posts}))
       .catch(error => this.setState({error}))
   }
-
-  handleOnSubmit(post) {
-    const newPost = Object.assign({}, post, {factorial: factorial.createFactorial()})
-    apiRequests.post("posts", newPost)
-  }
-
 
   render() {
     return (
