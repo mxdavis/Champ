@@ -11,7 +11,13 @@ class App extends Component {
     super(props)
     this.state = {
       posts: [],
-      error: ""
+      error: "",
+      edit: false,
+      post: {
+        title: "",
+        body: "",
+        published: false
+      }
     }
 
     this.handleOnSubmit = (post) => {
@@ -34,6 +40,13 @@ class App extends Component {
         posts: this.state.posts.filter(post => deletedPost !== post)
       })
     }
+
+    this.handleEdit = (post) => {
+      this.setState({
+        post,
+        edit: true
+      })
+    }
   }
 
   componentDidMount() {
@@ -49,12 +62,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Posts posts={this.state.posts} handleDelete={this.handleDelete}/>
-        <PostForm handleOnSubmit={this.handleOnSubmit} initialState={{
-          title: "",
-          body: "",
-          published: false
-        }}/>
+        <Posts posts={this.state.posts} handleDelete={this.handleDelete} handleEdit={this.handleEdit} edit={this.state.edit} editPost={this.state.post}/>
+        <PostForm handleOnSubmit={this.handleOnSubmit} initialState={this.state.post}/>
       </div>
     );
   }
