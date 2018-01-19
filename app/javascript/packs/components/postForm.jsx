@@ -45,7 +45,6 @@ class PostForm extends Component {
             type="text"
             name="title"
             onChange={this.handleOnChange}
-            value={this.state.title}
             defaultValue={this.state.title}
           />
           <label className="form-label">Body</label>
@@ -56,7 +55,6 @@ class PostForm extends Component {
             rows="10"
             type="textarea"
             onChange={this.handleOnChange}
-            value={this.state.body}
             defaultValue={this.state.body}
           />
           <label className="form-switch">
@@ -72,7 +70,7 @@ class PostForm extends Component {
           <div className="buttons-parent">
             <input
               type="submit"
-              value="Submit"
+              value={this.state.id? "Update" : "Submit"}
               className="btn btn-primary buttons-child"
             />
             <button

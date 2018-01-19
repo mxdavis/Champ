@@ -47,6 +47,16 @@ class App extends Component {
         edit: true
       })
     }
+
+    this.handleUpdate = (updatedPost) => {
+      apiRequests.patch(`posts/${updatedPost.id}/`, updatedPost)
+        .then(updatedPost => {
+          this.setState({
+          edit: false,
+          posts: this.state.posts.map(post => updatedPost.id == post.id? updatedPost : post)
+        })
+      })
+    }
   }
 
   componentDidMount() {
@@ -62,7 +72,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Posts posts={this.state.posts} handleDelete={this.handleDelete} handleEdit={this.handleEdit} edit={this.state.edit} editPost={this.state.post}/>
+        <Posts posts={this.state.posts} handleDelete={this.handleDelete} handleEdit={this.handleEdit} edit={this.state.edit} editPost={this.state.post} handleUpdate={this.handleUpdate}/>
         <PostForm handleOnSubmit={this.handleOnSubmit} initialState={this.state.post}/>
       </div>
     );

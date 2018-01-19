@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import PostForm from './postForm.jsx'
 
-const editForm = (post) => {
+const editForm = (post, handleUpdate) => {
   return (<div className="buttons-parent">
-    <PostForm handleOnSubmit={"hello"} initialState={post}/>
+    <PostForm handleOnSubmit={handleUpdate} initialState={post}/>
   </div>)
 }
 
@@ -28,8 +28,8 @@ const postShow = (post, handleDelete, handleEdit) => {
 }
 
 
-const Post = ({ post, handleDelete, handleEdit, edit, editPost }) => (
-  (edit && editPost.id === post.id)? editForm(post) : postShow(post, handleDelete, handleEdit)
+const Post = ({ post, handleDelete, handleEdit, edit, editPost, handleUpdate }) => (
+  (edit && editPost.id === post.id)? editForm(post, handleUpdate) : postShow(post, handleDelete, handleEdit)
 )
 
 export default Post
