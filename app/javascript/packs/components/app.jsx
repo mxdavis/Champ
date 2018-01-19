@@ -49,6 +49,7 @@ class App extends Component {
     }
 
     this.handleUpdate = (updatedPost) => {
+      updatedPost = Object.assign({}, updatedPost, {factorial: factorial.createOnUpdate(updatedPost.factorial)})
       apiRequests.patch(`posts/${updatedPost.id}/`, updatedPost)
         .then(updatedPost => {
           this.setState({
