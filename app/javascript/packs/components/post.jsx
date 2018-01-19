@@ -12,18 +12,22 @@ const postShow = (post, handleDelete, handleEdit) => {
   return (<div className="buttons-parent">
     <h3 className="center">{post.title} {post.factorial}</h3>
     <p>{post.body}</p>
-    <div className="buttons-child">
-      <button
-        className="btn"
-        onClick={() => handleEdit(post)}>
-        Edit
-      </button>
-      <button
-        className="btn"
-        onClick={() => handleDelete(post)}>
-        Delete
-      </button>
-    </div>
+    <p>{post.published? "This has been published" : "To Publish Update"}</p>
+    {post.published?
+      null :
+      <div className="buttons-child">
+        <button
+          className="btn"
+          onClick={() => handleEdit(post)}>
+          Edit
+        </button>
+        <button
+          className="btn"
+          onClick={() => handleDelete(post)}>
+          Delete
+        </button>
+      </div>
+    }
   </div>)
 }
 
